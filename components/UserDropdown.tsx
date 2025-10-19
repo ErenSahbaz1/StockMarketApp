@@ -12,14 +12,16 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { LogOut } from "lucide-react";
 import NavItems from "./NavItems";
+import { signOut } from "@/lib/actions/auth.actions";
 
 const UserDropdown = ({ user }: { user: User }) => {
 	const router = useRouter();
 
 	const handleSignOut = async () => {
+		await signOut();
 		router.push("/sign-in");
 	};
-	
+
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
